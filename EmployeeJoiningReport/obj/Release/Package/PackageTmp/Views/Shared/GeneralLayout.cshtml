@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-default ">
+        <div class="container-fluid"></div>
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#"><img src="~/Content/images/acslogo.png" /></a>
+
+
+        </div>
+        <div class="navbar-collapse" style="text-align:center; color: #ff8000;
+    font-size: 25px;
+    font-family: arial;
+    margin-right: 10%;
+   padding-top: 10px;">
+            <h1 style="font-family: 'Open Sans', sans-serif"> Joining Report</h1>
+        </div>
+
+
+
+    </nav>
+    <div class="container body-content">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav nav-pills table-responsive" id="mytab" role="tablist">
+               
+                @*<li class="active" id="pill1"><a data-toggle="tab" href="Home/PersonalDetails.cshtml" role="tab">PersonalDetails</a></li>*@
+                @*<li id="pill2"><a data-toggle="tab"  id="emergency" role="tab"> @Html.ActionLink("EmergencyContacts" ,"EmergencyContacts","Home") </a></li>*@
+                @*<li id="pill2"><a data-toggle="tab" href="#menu1" id="emergency" role="tab">EmergencyContacts</a></li>*@
+                @*<li class="@((ViewBag.PageName == "EmergencyContacts") ? "active" : "")"><a href="@Url.Action("EmergencyContacts","Home")" >EmergencyContacts</a></li>*@
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "PersonalDetails" ? "active" : "")">@Html.ActionLink("PersonalDetails", "PersonalDetails", "Home")</li>
+                @*<li class="active">@Html.ActionLink("PersonalDetails", "PersonalDetails", "Home")</li>*@
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "EmergencyContacts" ? "active" : "")">@Html.ActionLink("EmergencyContacts", "EmergencyContacts", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "InsuranceDetails" ? "active" : "")">@Html.ActionLink("InsuranceDetails", "InsuranceDetails", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "DocumentDetails" ? "active" : "")">@Html.ActionLink("DocumentDetails", "DocumentDetails", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "DeviceDetails" ? "active" : "")">@Html.ActionLink("DeviceDetails", "DeviceDetails", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Upload" ? "active" : "")">@Html.ActionLink("Upload", "Upload", "Home")</li>
+                @*<li>@Html.ActionLink("EmergencyContacts", "EmergencyContacts", "Home")</li>
+                <li>@Html.ActionLink("InsuranceDetails", "InsuranceDetails", "Home")</li>
+                <li>@Html.ActionLink("DocumentDetails", "DocumentDetails", "Home")</li>
+                <li>@Html.ActionLink("DeviceDetails", "DeviceDetails", "Home")</li>
+                <li>@Html.ActionLink("Upload", "Upload", "Home")</li>*@
+
+
+                @*<li id="pill3"><a data-toggle="tab" href="InsuranceDetails" id="insurance" role="tab">Insurance Details</a></li>
+                <li id="pill4"><a data-toggle="tab" href="DocumentDetails" id="document" role="tab">Document Details</a></li>
+                <li id="pill5"><a data-toggle="tab" href="DeviceDetails" id="device" role="tab">Device Details</a></li>
+                <li id="pill5"><a data-toggle="tab" href="Upload" id="uploading" role="tab">Upload</a></li>*@
+            </ul>
+        </div>
+        
+                @RenderBody()
+                <hr />
+    </div>
+            <div style="background-color:#e76d03;margin: 15px 0px 15px 0px; ">
+                <footer style="text-align:center; color:white;">
+                    <p>&copy;Advanced Business and Healthcare Solutions India Pvt Ltd</p>
+                </footer>
+            </div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+            <script src="~/Scripts/employee.js"></script>
+            <script src="~/Scripts/bootbox.min.js"></script>
+            <script src="~/Scripts/bootstrap-datepicker.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "DocumentDetails";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+
+    <h3>Document Details</h3>
+    <hr />
+    <form role="form" class="form-horizontal" name="documentdetails">
+        <h4><strong>PAN Card:</strong></h4>
+
+        <div class="form-group">
+            <label class="col-sm-2">PAN Card No</label><div class="col-sm-4"><input type="text" class="form-control" id="PANNo" name="PANNo" required></div>
+            <label class="col-sm-2">Name</label><div class="col-sm-4"><input type="text" class="form-control" id="PANName" name="PANName" placeholder="Name on PAN" onkeypress="return onlyAlphabets(event,this);" required></div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Date Of Birth</label><div class="col-sm-4"><input type="date" class="form-control" id="PANDOB" name="PANDOB" required></div>
+        </div>
+
+        <hr />
+        <h4><strong>Passport:</strong></h4>
+        <div class="form-group">
+
+            <div class="col-md-8">
+                <label class="radio-inline"><input type="radio" name="passportstatus" id="passexist" value="exist" checked>Available </label>
+                <label class="radio-inline"><input type="radio" name="passportstatus" id="passapplied" value="applied">Applied </label>
+                <label class="radio-inline"><input type="radio" name="passportstatus" id="passexpired" value="expired">Expired </label>
+                <label class="radio-inline"><input type="radio" name="passportstatus" id="passnotexist" value="notexist">Not Applied </label>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2">Passport No</label><div class="col-sm-4"><input type="text" class="form-control" id="PassportNo" name="PassportNo" required></div>
+            <label class="col-sm-2">Place of Birth</label><div class="col-sm-4"><input type="text" class="form-control" name="BirthPlace" id="BirthPlace" onkeypress="return onlyAlphabets(event,this);" required></div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2">Given Name</label><div class="col-sm-4"><input type="text" class="form-control" name="PassportFirstName" id="PassportFirstName" onkeypress="return onlyAlphabets(event,this);" required></div>
+            <label class="col-sm-2">Surname</label><div class="col-sm-4"><input type="text" class="form-control" name="PassportLastName" id="PassportLastName" onkeypress="return onlyAlphabets(event,this);" required></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Date Of Issue</label><div class="col-sm-4"><input type="date" class="form-control" id="PassportIssue" name="PassportIssue" required></div>
+            <label class="col-sm-2">Date Of Expiry</label><div class="col-sm-4"><input type="date" class="form-control" id="PassportExpiry" name="PassportExpiry" required></div>
+        </div>
+        <hr />
+
+        <div class="form-group">
+            <label class="col-sm-3">Employee Contract Date</label><div class="col-sm-3"><input type="date" class="form-control" id="OfferedDate" name="OfferedDate"></div>
+        </div>
+        <hr />
+        <h4><strong>Visa: </strong></h4>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="visatable_logic">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    #
+                                </th>
+                                <th class="text-center">
+                                    Country
+                                </th>
+                                <th class="text-center">
+                                    Type Of Visa
+                                </th>
+                                <th class="text-center">
+                                    Expired
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr id='visaaddr0'>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    <input type="text" name='Country' id="Country" class="form-control" onkeypress="return onlyAlphabets(event,this);" />
+
+                                </td>
+                                <td>
+                                    <input type="text" name='VisaType' id="VisaType" class="form-control" onkeypress="return onlyAlphabets(event,this);" />
+
+                                </td>
+                                <td>
+                                    <input type="date" name='VisaExpiry' id="VisaExpiry" class="form-control" />
+
+
+                                </td>
+                            </tr>
+                            <tr id='visaaddr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a id="add_visa" class="btn btn-default pull-left">Add Row</a><a id='delete_visa' class="pull-right btn btn-default">Delete Row</a>
+        </div>
+        <br />
+
+        <hr />
+        <div class="col-sm-2">
+            <button type="button" class="btn btn-primary" id="savebutton4">Save & Continue</button>
+        </div>
+        <div class="col-sm-6" style="float:right;">
+
+            <a style="padding-right: 10px">
+                <span class="glyphicon glyphicon-chevron-left" id="chevronleft4"></span>
+            </a>
+            <a style="padding-left: 10px">
+                <span class="glyphicon glyphicon-chevron-right" id="chevronright4"></span>
+            </a>
+        </div>
+    </form>

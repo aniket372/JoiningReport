@@ -1,0 +1,586 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .form-group #req:after {
+        content: "*";
+        color: red;
+        font-size: 20px;
+    }
+</style>
+
+< div > @Html.ActionLink("Back to Employee List", "GetAllEmployees") < /div>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="nav nav-pills table-responsive" id="mytab" role="tablist">
+        <li class="active" id="pill1"><a data-toggle="tab" href="#home" role="tab">Personal Details</a></li>
+        <li id="pill2"><a data-toggle="tab" href="#menu1" id="emergency" role="tab">Emergency Contacts</a></li>
+        <li id="pill3"><a data-toggle="tab" href="#menu2" id="insurance" role="tab">Insurance Details</a></li>
+        <li id="pill4"><a data-toggle="tab" href="#menu3" id="document" role="tab">Document Details</a></li>
+        <li id="pill5"><a data-toggle="tab" href="#menu4" id="device" role="tab">Device Details</a></li>
+
+    </ul>
+</div>
+<div class="container">
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade active in">
+            <h3>Personal details</h3>
+            
+                <p>Fields marked with asterisk(<strong style="color:red">*</strong>)are mandatory</p>
+            
+           
+                <hr />
+            
+            <form role="form" class="form-horizontal" name="personaldetails" id="personaldetails">
+                <div class="form-group">
+                    <label class="col-sm-1">EmployeeId</label><div class="col-sm-4"><input type="text" class="form-control" id="empid" name="empid" onkeypress="return onlyAlphabets(event,this);" readonly></div>
+                    <label class="col-sm-1" id="req">Date</label><div class="col-sm-4"><input type="text" class="form-control" id="JoiningDate" name="JoiningDate"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1" id="req">FirstName</label><div class="col-sm-4"><input type="text" class="form-control" placeholder="FirstName" name="FirstName" id="FirstName" onkeypress="return onlyAlphabets(event,this);" required></div>
+                    <label class="col-sm-1" id="req">LastName</label><div class="col-sm-4"><input type="text" class="form-control" placeholder="LastName" name="LastName" id="LastName" onkeypress="return onlyAlphabets(event,this);" required></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1" id="req" >DateOfBirth</label><div class="col-sm-4">
+    <input type="text" class="form-control" id="dp1"><span class="add-on"><i class="icon-th"></i></span>
+</div>
+                   
+                     @*<input type="date" class="form-control" name="DOB" id="DOB"  required>*@
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1">Gender</label>
+                        <div class="col-md-4">
+
+                            <label class="radio-inline"><input type="radio" name="gender" value="Male" id="Male" checked>Male</label>
+                            <label class="radio-inline"><input type="radio" name="gender" value="Female" id="Female">Female</label>
+                        </div>
+                        <label class="col-sm-2">Marital Status</label>
+                        <div class="col-md-4">
+
+                            <label class="radio-inline" style="margin-left:-45px"><input type="radio" name="maritalstatus" value="Married" id="Married" checked>Married</label>
+                            <label class="radio-inline"><input type="radio" name="maritalstatus" value="Unmarrried" id="Unmarrried">Unmarrried</label>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-sm-1" id="req">Email</label>
+                        <div class="col-sm-4"><input type="text" class="form-control" id="Email" name="Email" placeholder="Ex: abcd@xyz.com" required></div>
+                        <label class="col-sm-1"  id="req">BloodGroup</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="BloodGroup" name="BloodGroup">
+
+                                <option >A+</option>
+                                <option>AB+</option>
+                                <option>B+</option>
+                                <option selected>O+</option>
+                                <option>A-</option>
+                                <option>AB-</option>
+                                <option>B-</option>
+                                <option>O-</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1" id="req">Designation</label><div class="col-sm-4"><input type="text" class="form-control" placeholder="Ex: SoftwareEngineer" name="Designation" id="Designation" onkeypress="return onlyAlphabets(event,this);"></div>
+                        <label class="col-sm-1" for="tla" id="req">Location</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="Location" name="Location">
+
+                                <option selected>Bengaluru</option>
+                                <option>Baroda</option>
+                                <option>Gandhinagar</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <hr />
+                    <h4><strong>Permanent Address:</strong></h4>
+                    <div class="form-group">
+                        <label class="col-sm-1" for="PermanentAddress" id="req">Address</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="PermanentAddress" required
+                                   name="PermanentAddress">
+                        </div>
+                        <label class="col-sm-1" id="req">City</label><div class="col-sm-4"><input type="text" class="form-control" id="PermanentCity" name="PermanentCity" required></div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-sm-1" id="req">State</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentState" id="PermanentState" onkeypress="return onlyAlphabets(event,this);" required></div>
+                        <label class="col-sm-1" id="req">Pincode</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentPincode" id="PermanentPincode" required></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1" id="req">Mobile</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentMobile" id="PermanentMobile" required></div>
+                        <label class="col-sm-1">Phone</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentPhone" id="PermanentPhone"></div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="col-md-5">Is your present address same as permanent address?</label>
+                        <div class="col-md-6">
+
+                            <label class="radio-inline"><input type="radio" name="address" value="yes" id="radioyes">Yes </label>
+                            <label class="radio-inline"><input type="radio" name="address" value="no" id="radiono" checked>No </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <h4><strong>Present Address:</strong></h4>
+                    <div class="form-group">
+                        <label class="col-sm-1" for="address2">Address</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="PresentAddress" onkeypress="return onlyAlphabets(event,this);"
+                                   name="PresentAddress">
+                        </div>
+                        <label class="col-sm-1">City</label><div class="col-sm-4"><input type="text" class="form-control" id="PresentCity" name="PresentCity"></div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-sm-1">State</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentState" id="PresentState" onkeypress="return onlyAlphabets(event,this);"></div>
+                        <label class="col-sm-1">Pincode</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentPincode" id="PresentPincode"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1">Mobile</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentMobile" id="PresentMobile"></div>
+                        <label class="col-sm-1">Phone</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentPhone" id="PresentPhone" onkeypress="return onlyAlphabets(event,this);"></div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-primary" id="savebutton1" disabled="disabled" type="button">Save & Continue</button>
+
+                    </div>
+                    <p style="float:right;margin-right: 500px;margin-top: 15px;">
+                        <a>
+                            <span class="glyphicon glyphicon-chevron-right" id="chevron1"></span>
+                        </a>
+                    </p>
+
+</form>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h3>Person to contact in case of emergency</h3>
+
+            <hr />
+            <form role="form" class="form-horizontal" name="emergencycontacts">
+                <div class="form-group">
+                    <label class="col-sm-1">Name</label><div class="col-sm-6"><input type="text" class="form-control" id="Name" name="Name" onkeypress="return onlyAlphabets(event,this);" required></div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1">Relation</label><div class="col-sm-6"><input type="text" class="form-control" placeholder="Mother/ Father etc" name="Relation" id="Relation" onkeypress="return onlyAlphabets(event,this);" required></div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1">Mobile</label><div class="col-sm-6"><input type="text" class="form-control" id="Mobile" name="Mobile"></div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1">Phone</label><div class="col-sm-6"><input type="text" class="form-control" name="Phone" id="Phone" /></div>
+
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary" id="savebutton2">Save & Continue</button>
+
+                </div>
+                <div class="col-sm-6" style="float:right;">
+                    <a style="padding-right: 10px">
+                        <span class="glyphicon glyphicon-chevron-left" id="chevronleft2"></span>
+                    </a>
+
+                    <a style="padding-left: 10px">
+                        <span class="glyphicon glyphicon-chevron-right" id="chevronright2"></span>
+                    </a>
+                </div>
+            </form>
+
+        </div>
+        <!------------------------------------------------------------------------------------------------------------------->
+        <div id="menu2" class="tab-pane fade">
+            <h3>Medical Insurance</h3>
+            <form name="insurance">
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <table class="table table-bordered table-hover" id="insuredtab_logic">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            #
+                                        </th>
+                                        <th class="text-center">
+                                            Insured Name
+                                        </th>
+                                        <th class="text-center">
+                                            Date Of Birth
+                                        </th>
+                                        <th class="text-center">
+                                            Relationship
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr id='addr0'>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            <input type="text" name='InsuredName' id="InsuredName" placeholder='Name' class="form-control" onkeypress="return onlyAlphabets(event,this);" />
+
+                                        </td>
+                                        <td>
+                                            <input type="date" name='InsuredDOB' id="InsuredDOB" class="form-control" />
+                                        </td>
+                                        <td>
+
+                                            <select class="form-control" id="Relationship" name="Relationship">
+
+                                                <option selected>Father</option>
+                                                <option>Mother</option>
+                                                <option>Spouse</option>
+                                                <option>Son</option>
+                                                <option>Daughter</option>
+                                                <option>Mother-In-Law</option>
+                                                <option>Father-In-Law</option>
+
+                                            </select>
+
+
+                                            @*<input type="text" name='Relationship' id="Relationship" class="form-control"  onkeypress="return onlyAlphabets(event,this);"/>*@
+                                            <input type="hidden" name='hiddenval' id="hiddenval" />
+
+                                        </td>
+                                    </tr>
+                                    <tr id='addr1'></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+                </div>
+                <br />
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-primary" id="savebutton3">Save & Continue</button>
+
+
+                </div>
+
+                <div class="col-sm-6" style="float:right;">
+
+                    <a style="padding-right: 10px">
+                        <span class="glyphicon glyphicon-chevron-left" id="chevronleft3"></span>
+                    </a>
+                    <a style="padding-left: 10px">
+                        <span class="glyphicon glyphicon-chevron-right" id="chevronright3"></span>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <!-------------------------------------------------------------------------------------------------------------------->
+        <div id="menu3" class="tab-pane fade">
+
+            <h3>Document Details</h3>
+            <hr />
+            <form role="form" class="form-horizontal" name="documentdetails">
+                <h4><strong>PAN Card:</strong></h4>
+
+                <div class="form-group">
+                    <label class="col-sm-2">PAN Card No</label><div class="col-sm-4"><input type="text" class="form-control" id="PANNo" name="PANNo" required></div>
+                    <label class="col-sm-1">Name</label><div class="col-sm-4"><input type="text" class="form-control" id="PANName" name="PANName" placeholder="Name on PAN" onkeypress="return onlyAlphabets(event,this);" required></div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Date Of Birth</label><div class="col-sm-4"><input type="date" class="form-control" id="PANDOB" name="PANDOB" required></div>
+                </div>
+
+                <hr />
+                <h4><strong>Passport:</strong></h4>
+                <div class="form-group">
+
+                    <div class="col-md-8">
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passexist" value="exist" checked>Available </label>
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passapplied" value="applied">Applied </label>
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passexpired" value="expired">Expired </label>
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passnotexist" value="notexist">Doesn't Exist </label>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2">Passport No</label><div class="col-sm-4"><input type="text" class="form-control" id="PassportNo" name="PassportNo" required></div>
+                    <label class="col-sm-1">BirthPlace</label><div class="col-sm-4"><input type="text" class="form-control" name="BirthPlace" id="BirthPlace" onkeypress="return onlyAlphabets(event,this);" required></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2">FirstName</label><div class="col-sm-4"><input type="text" class="form-control" name="PassportFirstName" id="PassportFirstName" onkeypress="return onlyAlphabets(event,this);" required></div>
+                    <label class="col-sm-1">LastName</label><div class="col-sm-4"><input type="text" class="form-control" name="PassportLastName" id="PassportLastName" onkeypress="return onlyAlphabets(event,this);" required></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Issue</label><div class="col-sm-4"><input type="date" class="form-control" id="PassportIssue" name="PassportIssue" required></div>
+                    <label class="col-sm-1">Expiry</label><div class="col-sm-4"><input type="date" class="form-control" id="PassportExpiry" name="PassportExpiry" required></div>
+                </div>
+                <hr />
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <h4><strong>Documents Provided: </strong></h4>
+                    </div>
+                    <div>
+
+                        <label class="checkbox-inline"><input type="checkbox" value="pancheck" name="docprovided">PAN Card</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="addresscheck" name="docprovided">Address-Proof </label>
+                        <label class="checkbox-inline"><input type="checkbox" value="degree" name="docprovided">Degree Certificates</label>
+
+
+                    </div>
+
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label class="col-sm-2">Offer Date</label><div class="col-sm-4"><input type="date" class="form-control" id="OfferedDate" name="OfferedDate"></div>
+                </div>
+                <hr />
+                <h4><strong>Visa: </strong></h4>
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <table class="table table-bordered table-hover" id="visatable_logic">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            #
+                                        </th>
+                                        <th class="text-center">
+                                            Country
+                                        </th>
+                                        <th class="text-center">
+                                            Type Of Visa
+                                        </th>
+                                        <th class="text-center">
+                                            Expired
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr id='visaaddr0'>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            <input type="text" name='Country' id="Country" class="form-control" onkeypress="return onlyAlphabets(event,this);" />
+
+                                        </td>
+                                        <td>
+                                            <input type="text" name='VisaType' id="VisaType" class="form-control" onkeypress="return onlyAlphabets(event,this);" />
+
+                                        </td>
+                                        <td>
+                                            <input type="date" name='VisaExpiry' id="VisaExpiry" class="form-control" />
+
+
+                                        </td>
+                                    </tr>
+                                    <tr id='visaaddr1'></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a id="add_visa" class="btn btn-default pull-left">Add Row</a><a id='delete_visa' class="pull-right btn btn-default">Delete Row</a>
+                </div>
+                <br />
+
+                <hr />
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-primary" id="savebutton4">Save & Continue</button>
+                </div>
+                <div class="col-sm-6" style="float:right;">
+
+                    <a style="padding-right: 10px">
+                        <span class="glyphicon glyphicon-chevron-left" id="chevronleft4"></span>
+                    </a>
+                    <a style="padding-left: 10px">
+                        <span class="glyphicon glyphicon-chevron-right" id="chevronright4"></span>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div id="menu4" class="tab-pane fade">
+            <br />
+            <h3>DeviceDetails</h3>
+            <form>
+
+                <br />
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <table class="table table-bordered table-hover" id="devicetab_logic">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            #
+                                        </th>
+                                        <th class="text-center">
+                                            Device Type
+                                        </th>
+                                        <th class="text-center">
+                                            Make
+                                        </th>
+                                        <th class="text-center">
+                                            Model No
+                                        </th>
+                                        <th class="text-center">
+                                            Serial/IMEI No
+                                        </th>
+                                        <th class="text-center">
+                                            HDD(GB)
+                                        </th>
+                                        <th class="text-center">
+                                            RAM(GB)
+                                        </th>
+                                        <th class="text-center">
+                                            Issue Date
+                                        </th>
+                                        <th class="text-center">
+                                            Return Date
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id='deviceaddr0'>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td class="col-sm-2">
+
+                                            <select class="form-control" id="DeviceType" name="DeviceType">
+                                                <option>Laptop</option>
+                                                <option>Mobile</option>
+                                                <option>Ipad</option>
+
+
+                                            </select>
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <input type="text" name='Make' id="Make" class="form-control" />
+                                        </td>
+                                        <td class="col-sm-1">
+                                            <input type="text" name='ModelNo' id="ModelNo" class="form-control" />
+                                        </td>
+                                        <td class="col-sm-1">
+                                            <input type="text" name='SerialNo' id="SerialNo" class="form-control" />
+                                        </td>
+                                        <td>
+                                            <input type="text" name='HDD' id="HDD" class="form-control" />
+                                        </td>
+                                        <td>
+                                            <input type="text" name='RAM' id="RAM" class="form-control" />
+                                        </td>
+                                        <td>
+                                            <input type="date" name='DeviceIssue' id="DeviceIssue" class="form-control" />
+                                        </td>
+                                        <td>
+                                            <input type="date" name='DeviceReturn' id="DeviceReturn" class="form-control" />
+                                        </td>
+                                    </tr>
+                                    <tr id='deviceaddr1'></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a id="add_device" class="btn btn-default pull-left">Add Device</a>
+                    @*<a id='delete_device' class="pull-right btn btn-default">Delete Device</a>*@
+                </div>
+                <br />
+
+                <br />
+
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        <h4><strong>Peripherals:</strong></h4>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="keyboard">Keyboard </label>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="mouse">Mouse</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="monitor">Monitor</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="headphone">HeadPhone</label>
+
+
+
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="form-group">
+                        <div class="col-sm-2"><h4><strong>AccessCardNo:</strong></h4></div><div class="col-sm-4"><input type="text" class="form-control" id="Access" name="Access" /></div>
+                    </div>
+                </div>
+                <br />
+                <br />
+
+                <div>
+                    <button type="button" class="btn btn-primary" id="savebutton5">Submit</button>
+                    <button class="btn btn-primary  glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#myModal" id="showpreview" onclick="return preview(); " style="float:right;height: 34px;
+    padding-top: 0px;margin-right: 75px;width:100px">
+                        Preview
+                    </button>
+
+                </div>
+
+
+                <p class="col-sm-6" style="float:right;">
+                    <a>
+                        <span class="glyphicon glyphicon-chevron-left" id="chevronleft5"></span>
+                    </a>
+                </p>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content" style="border:thin" id="modalcontent">
+                            <div style="padding-top: 10px;padding-left: 30px;"><img src="~/Content/images/acslogo.png" /></div>
+                            <div class="modal-header">
+
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+                            </div>
+                            <div class="modal-body" id="printbody">
+
+                                <div style="width:100%; height:130px; border:1px solid black;margin-bottom: 10px;">
+
+
+                                    <div>
+                                        <div style="text-align:center;margin-top: 40px; font-size: 35px; font-family: Open Sans;color: orange">
+                                            Joining Report
+                                        </div>
+
+                                        <div style="width:100px; height:125px; float:right;border:1px solid black;margin-top: -89px;margin-right: 2px;"> Affix Photo here</div>
+                                    </div>
+                                </div>
+                                <div id="preview_data" title="Preview Form Data"></div>
+
+                            </div>
+                            <p style="text-align:center">&copy;Advanced Business and Healthcare Solutions India Pvt Ltd</p>
+                        </div>
+                        <div class="modal-footer">
+                            <p>&copy;Advanced Business and Healthcare Solutions India Pvt Ltd</p>
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            <button class="btn btn-success btn-lg glyphicon glyphicon-print" id="printButton" type="button"> Print</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+</div>

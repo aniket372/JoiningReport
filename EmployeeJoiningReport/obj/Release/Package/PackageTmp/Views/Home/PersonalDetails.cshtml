@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "PersonalDetails";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+<style>
+    .form-group #req:after {
+        content: "*";
+        color: red;
+        font-size: 20px;
+
+    }
+    </style>
+
+<div id="home" class="tab-pane fade active in">
+    <h3>Personal details</h3>
+
+    <p>Fields marked with asterisk(<strong style="color:red">*</strong>)are mandatory</p>
+
+
+    <hr />
+
+    <form role="form" class="form-horizontal" name="personaldetails" id="personaldetails">
+        <div class="form-group">
+            <label class="col-sm-2">Employee Id</label><div class="col-sm-4"><input type="text" class="form-control" id="empid" name="empid" onkeypress="return onlyAlphabets(event,this);" readonly></div>
+            <label class="col-sm-2" id="req">Date</label><div class="col-sm-4"><input type="date" class="form-control" id="JoiningDate" name="JoiningDate"></div>
+
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2" id="req">First Name</label><div class="col-sm-4"><input type="text" class="form-control" placeholder="FirstName" name="FirstName" id="FirstName" onkeypress="return onlyAlphabets(event,this);" required></div>
+            <label class="col-sm-2" id="req">Last Name</label><div class="col-sm-4"><input type="text" class="form-control" placeholder="LastName" name="LastName" id="LastName" onkeypress="return onlyAlphabets(event,this);" required></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2" id="req">Date Of Birth</label><div class="col-sm-4"><input type="date" class="form-control" name="DOB" id="DOB" required></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Gender</label>
+            <div class="col-md-4">
+
+                <label class="radio-inline"><input type="radio" name="gender" value="Male" id="Male" checked>Male</label>
+                <label class="radio-inline"><input type="radio" name="gender" value="Female" id="Female">Female</label>
+            </div>
+            <label class="col-sm-2">Marital Status</label>
+            <div class="col-md-4">
+
+                <label class="radio-inline"><input type="radio" name="maritalstatus" value="Married" id="Married" checked>Married</label>
+                <label class="radio-inline"><input type="radio" name="maritalstatus" value="Unmarrried" id="Unmarrried">Unmarrried</label>
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label class="col-sm-2" id="req">Personal Email</label>
+            <div class="col-sm-4"><input type="text" class="form-control" id="Email" name="Email" placeholder="Ex: abcd@xyz.com" required></div>
+            <label class="col-sm-2" id="req">Blood Group</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="BloodGroup" name="BloodGroup">
+
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                    <option selected>O+</option>
+                    <option>O-</option>
+
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2" id="req">Designation</label><div class="col-sm-4"><input type="text" class="form-control" placeholder="Ex: SoftwareEngineer" name="Designation" id="Designation" onkeypress="return onlyAlphabets(event,this);"></div>
+            <label class="col-sm-2" for="tla" id="req">Location</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="Location" name="Location">
+
+                    <option selected>Bengaluru</option>
+                    <option>Baroda</option>
+                    <option>Gandhinagar</option>
+
+                </select>
+            </div>
+
+        </div>
+
+        <hr />
+        <h4><strong>Permanent Address:</strong></h4>
+        <div class="form-group">
+            <label class="col-sm-2" for="PermanentAddress" id="req">Address</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="PermanentAddress" required
+                       name="PermanentAddress">
+            </div>
+            <label class="col-sm-2" id="req">City</label><div class="col-sm-4"><input type="text" class="form-control" id="PermanentCity" name="PermanentCity" required></div>
+        </div>
+        <div class="form-group">
+
+            <label class="col-sm-2" id="req">State</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentState" id="PermanentState" onkeypress="return onlyAlphabets(event,this);" required></div>
+            <label class="col-sm-2" id="req">Pincode</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentPincode" id="PermanentPincode" required></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2" id="req">Mobile</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentMobile" id="PermanentMobile" required></div>
+            <label class="col-sm-2">Phone</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentPhone" id="PermanentPhone"></div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label class="col-md-5">Is your present address same as permanent address?</label>
+            <div class="col-md-6">
+
+                <label class="radio-inline"><input type="radio" name="address" value="yes" id="radioyes">Yes </label>
+                <label class="radio-inline"><input type="radio" name="address" value="no" id="radiono" checked>No </label>
+            </div>
+        </div>
+        <hr />
+        <h4><strong>Present Address:</strong></h4>
+        <div class="form-group">
+            <label class="col-sm-2" for="address2">Address</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="PresentAddress" onkeypress="return onlyAlphabets(event,this);"
+                       name="PresentAddress">
+            </div>
+            <label class="col-sm-2">City</label><div class="col-sm-4"><input type="text" class="form-control" id="PresentCity" name="PresentCity"></div>
+        </div>
+        <div class="form-group">
+
+            <label class="col-sm-2">State</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentState" id="PresentState" onkeypress="return onlyAlphabets(event,this);"></div>
+            <label class="col-sm-2">Pincode</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentPincode" id="PresentPincode"></div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2">Mobile</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentMobile" id="PresentMobile"></div>
+            <label class="col-sm-2">Phone</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentPhone" id="PresentPhone" onkeypress="return onlyAlphabets(event,this);"></div>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-primary" id="savebutton1" disabled="disabled" type="button">Save & Continue</button>
+
+        </div>
+        <p style="float:right;margin-right: 500px;margin-top: 15px;">
+            <a>
+                <span class="glyphicon glyphicon-chevron-right" id="chevron1"></span>
+            </a>
+        </p>
+
+    </form>
+</div>

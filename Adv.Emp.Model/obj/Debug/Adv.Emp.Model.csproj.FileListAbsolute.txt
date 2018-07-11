@@ -1,0 +1,5 @@
+C:\Users\aniket.g\Documents\Visual Studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Model\bin\Debug\Adv.Emp.Model.dll
+C:\Users\aniket.g\Documents\Visual Studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Model\bin\Debug\Adv.Emp.Model.pdb
+C:\Users\aniket.g\Documents\Visual Studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Model\obj\Debug\Adv.Emp.Model.dll
+C:\Users\aniket.g\Documents\Visual Studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Model\obj\Debug\Adv.Emp.Model.pdb
+C:\Users\aniket.g\Documents\Visual Studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Model\obj\Debug\Adv.Emp.Model.csprojResolveAssemblyReference.cache

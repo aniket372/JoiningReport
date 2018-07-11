@@ -1,0 +1,82 @@
+﻿@model Adv.Emp.Model.GetEmployeeModel
+
+
+
+<h3>Edit Employee Details</h3>
+
+<div class="form-horizontal">
+
+    <hr />
+
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <table class="table table-bordered table-striped">
+                    <thead style="background-color:#ffa33e">
+                        <tr>
+                            <th>
+                                Employee No.
+                            </th>
+                            <th>
+                                Full Name
+                            </th>
+                            <th>
+                                Personal Details
+                            </th>
+
+                            <th>
+                                Emergency Contacts
+                            </th>
+                        </tr>
+                        </thead>
+                    <tbody class="table-striped">
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.EmployeeNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.FirstName)
+                                @Html.DisplayFor(model => model.LastName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditPersonalDetails", new { EmployeeNumber = Model.EmployeeNumber })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditEmergencyContacts", new { EmployeeNumber = Model.EmployeeNumber })
+                            </td>
+                        </tr>
+                    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to List", "GetAllEmployees")
+    </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+

@@ -1,0 +1,983 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .form-group #req:after {
+        content: "*";
+        color: red;
+        font-size: 20px;
+
+    }
+    .file {
+  visibility: hidden;
+  position: absolute;
+}
+</style>
+
+@*< div > @Html.ActionLink("Back to Employee List", "GetAllEmployees") < /div>*@
+<div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="nav nav-pills table-responsive" id="mytab" role="tablist">
+        <li class="active" id="pill1"><a data-toggle="tab" href="#home" role="tab">Personal Details</a></li>
+        <li id="pill2"><a data-toggle="tab" href="#menu1" id="emergency" role="tab">Emergency Contacts</a></li>
+        <li id="pill3"><a data-toggle="tab" href="#menu2" id="insurance" role="tab">Insurance Details</a></li>
+        <li id="pill4"><a data-toggle="tab" href="#menu3" id="document" role="tab">Document Details</a></li>
+        <li id="pill7"><a data-toggle="tab" href="#menu6" id="bankaccount" role="tab">Bank Account Details</a></li>
+        <li id="pill5"><a data-toggle="tab" href="#menu4" id="device" role="tab">Device Details</a></li>
+        <li id="pill6"><a data-toggle="tab" href="#menu5" id="uploading" role="tab">Upload</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade active in">
+            <h3>Personal details</h3>
+            
+                <p>Fields marked with asterisk(<strong style="color:red">*</strong>)are mandatory</p>
+            
+           
+                <hr />
+            
+            <form role="form" class="form-horizontal" name="personaldetails" id="personaldetails">
+                <div class="form-group">
+                    <label class="col-sm-2">Employee Id</label><div class="col-sm-4"><input type="text" class="form-control" id="empid" name="empid" readonly></div>
+                    <label class="col-sm-2" id="req">Date</label><div class="col-sm-4"><input type="text"  class="form-control datepicker" id="JoiningDate" name="JoiningDate"></div>
+                    
+               
+                
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2" id="req">First Name</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" placeholder="FirstName" name="FirstName" id="FirstName" required></div>
+                    <label class="col-sm-2" id="req">Last Name</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" placeholder="LastName" name="LastName" id="LastName"  required></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2" id="req">Date Of Birth</label><div class="col-sm-4"><input type="text" class="form-control datepicker" name="DOB" id="DOB" data-provide="datepicker" required placeholder="dd/mm/yyyy"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2">Gender</label>
+                        <div class="col-md-4">
+
+                            <label class="radio-inline"><input type="radio" name="gender" value="Male" id="Male" checked>Male</label>
+                            <label class="radio-inline"><input type="radio" name="gender" value="Female" id="Female">Female</label>
+                        </div>
+                        <label class="col-sm-2">Marital Status</label>
+                        <div class="col-md-4">
+
+                            <label class="radio-inline"><input type="radio" name="maritalstatus" value="Married" id="Married" checked>Married</label>
+                            <label class="radio-inline"><input type="radio" name="maritalstatus" value="Unmarrried" id="Unmarrried">Unmarrried</label>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-sm-2" id="req">Personal Email</label>
+                        <div class="col-sm-4"><input type="text" class="form-control" id="Email" name="Email" placeholder="Ex: abcd@xyz.com" required></div>
+                        <label class="col-sm-2"  id="req">Blood Group</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="BloodGroup" name="BloodGroup">
+
+                                <option >A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option >B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option selected>O+</option>
+                                <option>O-</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2" id="req">Designation</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" placeholder="Ex: SoftwareEngineer" name="Designation" id="Designation" ></div>
+                        <label class="col-sm-2" for="tla" id="req">Location</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="Location" name="Location">
+
+                                <option selected>Bengaluru</option>
+                                <option>Baroda</option>
+                                <option>Gandhinagar</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+               
+                @*<div>
+                    <label>Country *</label>
+                    <select class="form-control bfh-" data-country="US"></select>
+                    <select id="states" class="form-control bfh-states" data-country="countries"></select>
+                </div>*@
+                <div class="form-group">
+                    <label class="col-sm-2" id="req">Citizenship</label>
+                    <div class="col-sm-4"><select class="form-control bfh-selectbox bfh-countries" data-country="IN" data-flag="true" id="Citizenship" name="Citizenship"></select></div>
+                </div>
+                <div class="form-group" id="workhide">
+                    <label class="col-md-5"> Do you have valid work permit ?</label>
+                    <div class="col-md-6">
+
+                        <label class="radio-inline"><input type="radio" name="workpermit" value="workyes" id="radioworkyes">Yes </label>
+                        <label class="radio-inline"><input type="radio" name="workpermit" value="workno" id="radioworkno" checked>No </label>
+                    </div>
+                </div>
+                    <hr />
+                <h4><strong>Permanent Address:</strong></h4>
+                <div class="form-group">
+                    <label class="col-sm-2" id="req">Country</label>
+                    <div class="col-sm-4"><input type="text" class="form-control " id="PermanentCountry" name="PermanentCountry" value="India" readonly /></div>
+                    <label class="col-sm-2" id="req">State</label><div class="col-sm-4"><select class="form-control "  name="PermanentState" id="PermanentState">
+                                                                                            <option>Andaman and Nicobar Islands</option>
+                                                                                            <option>Andhra Pradesh	</option>
+                                                                                            <option>Arunachal Pradesh</option>
+                                                                                            <option>Assam	</option>
+                                                                                            <option>Bihar	</option>
+                                                                                            <option>Chandigarh	</option>
+                                                                                            <option>Chhattisgarh	</option>
+                                                                                            <option>Dadra and Nagar Haveli	</option>
+                                                                                            <option>Daman and Diu	</option>
+                                                                                            <option>National Capital Territory of Delhi	</option>
+                                                                                            <option>Goa	</option>
+                                                                                            <option>Gujarat	</option>
+                                                                                            <option>Haryana	</option>
+                                                                                            <option>Himachal </option>
+                                                                                            <option>Jammu and Kashmir	</option>
+                                                                                            <option>Jharkhand	</option>
+                                                                                            <option>Karnataka	</option>
+                                                                                            <option>Kerala	</option>
+                                                                                            <option>Lakshadweep	</option>
+                                                                                            <option>Madhya Pradesh	</option>
+                                                                                            <option>Maharashtra	</option>
+                                                                                            <option>Manipur	</option>
+                                                                                            <option>Meghalaya	</option>
+                                                                                            <option>Mizoram	</option>
+                                                                                            <option>Nagaland</option>
+                                                                                            <option>Orissa	</option>
+                                                                                            <option>Pondicherry	</option>
+                                                                                            <option>Punjab	</option>
+                                                                                            <option>Rajasthan</option>
+                                                                                            <option>Sikkim	</option>
+                                                                                            <option>Tamil Nadu	</option>
+                                                                                            <option>Telangana	</option>
+                                                                                            <option>Tripura	</option>
+                                                                                            <option>Uttar Pradesh	</option>
+                                                                                            <option>West Bengal</option>
+                    </select></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2" for="PermanentAddress" id="req">Address</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="PermanentAddress" required
+                               name="PermanentAddress">
+                    </div>
+                        <label class="col-sm-2" id="req">City</label><div class="col-sm-4"><input type="text" class="form-control" id="PermanentCity" name="PermanentCity" required></div>
+                    </div>
+                    <div class="form-group">
+                        
+                       
+                        <label class="col-sm-2" id="req">Pincode</label><div class="col-sm-4"><input type="text" class="form-control bfh-phone" name="PermanentPincode" id="PermanentPincode" data-format="dddddd" required></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2" id="req">Mobile</label><div class="col-sm-4"><input type="text" class="form-control bfh-phone" name="PermanentMobile" id="PermanentMobile" data-format="+91 ddd-ddd-dddd" required></div>
+                        <label class="col-sm-2">Phone</label><div class="col-sm-4"><input type="text" class="form-control" name="PermanentPhone" id="PermanentPhone" data-format="ddddddddddddddd" placeholder="Enter with STD Code"></div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="col-md-5">Is your present address same as permanent address?</label>
+                        <div class="col-md-6">
+
+                            <label class="radio-inline"><input type="radio" name="address" value="yes" id="radioyes">Yes </label>
+                            <label class="radio-inline"><input type="radio" name="address" value="no" id="radiono" checked>No </label>
+                        </div>
+                    </div>
+                    <hr />
+                <h4><strong>Present Address:</strong></h4>
+                <div class="form-group">
+                    <label class="col-sm-2" id="req">Country</label>
+                    <div class="col-sm-4"><input type="text" class="form-control "  id="PresentCountry" name="PresentCountry" value="India" readonly/></div>
+                    <label class="col-sm-2" id="req">State</label><div class="col-sm-4"><select class="form-control " name="PresentState" id="PresentState">
+                                                                                            <option>Andaman and Nicobar Islands</option>
+                                                                                            <option>Andhra Pradesh	</option>
+                                                                                            <option>Arunachal Pradesh</option>
+                                                                                            <option>Assam	</option>
+                                                                                            <option>Bihar	</option>
+                                                                                            <option>Chandigarh	</option>
+                                                                                            <option>Chhattisgarh	</option>
+                                                                                            <option>Dadra and Nagar Haveli	</option>
+                                                                                            <option>Daman and Diu	</option>
+                                                                                            <option>National Capital Territory of Delhi	</option>
+                                                                                            <option>Goa	</option>
+                                                                                            <option>Gujarat	</option>
+                                                                                            <option>Haryana	</option>
+                                                                                            <option>Himachal </option>
+                                                                                            <option>Jammu and Kashmir	</option>
+                                                                                            <option>Jharkhand	</option>
+                                                                                            <option>Karnataka	</option>
+                                                                                            <option>Kerala	</option>
+                                                                                            <option>Lakshadweep	</option>
+                                                                                            <option>Madhya Pradesh	</option>
+                                                                                            <option>Maharashtra	</option>
+                                                                                            <option>Manipur	</option>
+                                                                                            <option>Meghalaya	</option>
+                                                                                            <option>Mizoram	</option>
+                                                                                            <option>Nagaland</option>
+                                                                                            <option>Orissa	</option>
+                                                                                            <option>Pondicherry	</option>
+                                                                                            <option>Punjab	</option>
+                                                                                            <option>Rajasthan</option>
+                                                                                            <option>Sikkim	</option>
+                                                                                            <option>Tamil Nadu	</option>
+                                                                                            <option>Telangana	</option>
+                                                                                            <option>Tripura	</option>
+                                                                                            <option>Uttar Pradesh	</option>
+                                                                                            <option>West Bengal</option>    
+
+                    </select></div>
+                </div>
+                    <div class="form-group">
+                        <label class="col-sm-2" for="address2">Address</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="PresentAddress" onkeypress="return onlyAlphabets(event,this);"
+                                   name="PresentAddress">
+                        </div>
+                        <label class="col-sm-2">City</label><div class="col-sm-4"><input type="text" class="form-control" id="PresentCity" name="PresentCity"></div>
+                    </div>
+                    <div class="form-group">
+
+                        
+                        <label class="col-sm-2">Pincode</label><div class="col-sm-4"><input type="text" class="form-control bfh-phone" name="PresentPincode" id="PresentPincode" data-format="dddddd"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2">Mobile</label><div class="col-sm-4"><input type="text" class="form-control bfh-phone" name="PresentMobile" data-format="+91 ddd-ddd-dddd" id="PresentMobile"></div>
+                        <label class="col-sm-2">Phone</label><div class="col-sm-4"><input type="text" class="form-control" name="PresentPhone" id="PresentPhone" data-format="ddddddddddddddd" placeholder="Enter with STD Code"></div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-advanced" id="savebutton1" disabled="disabled" type="button">Save & Continue</button>
+
+                    </div>
+
+
+</form>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h3>Person to contact in case of emergency</h3>
+
+            <hr />
+            <form role="form" class="form-horizontal" name="emergencycontacts">
+                <div class="col-sm-6">
+                    <h4 style="font-weight: bold;text-align: center ">Person 1</h4>
+                    <div class="form-group" >
+                        <label class="col-sm-3">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control OnlyAlphabets" id="EmergencyName1" name="EmergencyName1" required>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Relation</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control OnlyAlphabets" placeholder="Mother/ Father etc" name="EmergencyRelation1" id="EmergencyRelation1" required>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Address</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="EmergencyAddress1" name="EmergencyAddress1" required>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Mobile</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control bfh-phone" id="EmergencyMobile1" name="EmergencyMobile1"  data-format="+91 ddd-ddd-dddd"  >
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Phone</label>
+                       
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control bfh-phone" name="EmergencyPhone1" id="EmergencyPhone1" data-format="ddddddddddddddd" placeholder="Enter with STD Code" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" >
+                    
+                  
+                    <h4 style="font-weight: bold; text-align: center ">Person 2</h4>
+                    <div class="form-group">
+                        <label class="col-sm-3">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control OnlyAlphabets" id="EmergencyName2" name="EmergencyName2" required>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Relation</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control OnlyAlphabets" placeholder="Mother/ Father etc" name="EmergencyRelation2" id="EmergencyRelation2" required>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Address</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="EmergencyAddress2" name="EmergencyAddress2" required>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Mobile</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control bfh-phone" id="EmergencyMobile2" name="EmergencyMobile2" data-format="+91 ddd-ddd-dddd">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">Phone</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="EmergencyPhone2" id="EmergencyPhone2" />
+                        </div>
+
+                    </div>
+                  
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-advanced" id="savebutton2">Save & Continue</button>
+
+                </div>
+            </form>
+
+        </div>
+        <!------------------------------------------------------------------------------------------------------------------->
+        <div id="menu2" class="tab-pane fade">
+            <h3>Medical Insurance</h3>
+            <form name="insurance">
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <table class="table table-bordered table-hover" id="insuredtab_logic">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            #
+                                        </th>
+                                        <th class="text-center">
+                                            Insured Name
+                                        </th>
+                                        <th class="text-center">
+                                            Date Of Birth
+                                        </th>
+                                        <th class="text-center">
+                                            Relationship
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr id='addr0'>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            <input type="text" name='InsuredName' id="InsuredName" placeholder='Name' class="form-control OnlyAlphabets"  />
+
+                                        </td>
+                                        <td>
+                                            <input type="text" name='InsuredDOB' id="InsuredDOB" class="form-control datepicker" placeholder="dd/mm/yyyy" />
+                                        </td>
+                                        <td>
+
+                                            <select class="form-control" id="Relationship" name="Relationship">
+                                                <option>Self</option>
+                                                <option>Spouse</option>
+                                                <option>Father</option>
+                                                <option>Mother</option>
+                                                <option>Son</option>
+                                                <option>Daughter</option>
+                                                <option>Mother-In-Law</option>
+                                                <option>Father-In-Law</option>
+
+                                            </select>
+
+
+                                           
+                                            <input type="hidden" name='hiddenval' id="hiddenval" />
+
+                                        </td>
+                                    </tr>
+                                    <tr id='addr1'></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+                </div>
+                <br />
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-advanced" id="savebutton3">Save & Continue</button>
+
+
+                </div>
+
+               
+            </form>
+        </div>
+
+        <!-------------------------------------------------------------------------------------------------------------------->
+        <div id="menu3" class="tab-pane fade">
+
+            <h3>Document Details</h3>
+            <hr />
+            <form role="form" class="form-horizontal" name="documentdetails">
+                <h4><strong>PAN Card:</strong></h4>
+
+                <div class="form-group">
+                    <label class="col-sm-2">PAN Card No</label><div class="col-sm-4"><input type="text" class="form-control" id="PANNo" name="PANNo" required></div>
+                    <label class="col-sm-2">Name</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" id="PANName" name="PANName" placeholder="Name on PAN"  required></div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Father's Name</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" id="PANFatherName" name="PANFatherName" placeholder="Name on PAN" required></div>
+                    <label class="col-sm-2">Date Of Birth</label>
+                    <div class="col-sm-4"><input type="text" class="form-control datepicker" id="PANDOB" name="PANDOB" placeholder="dd/mm/yyyy" required>
+                    </div>
+
+                </div>
+
+                <hr />
+                <h4><strong>Passport:</strong></h4>
+                <div class="form-group">
+
+                    <div class="col-md-8">
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passexist" value="exist" checked>Available </label>
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passapplied" value="applied">Applied </label>
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passexpired" value="expired">Expired </label>
+                        <label class="radio-inline"><input type="radio" name="passportstatus" id="passnotexist" value="notexist">Not Applied </label>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2">Passport No</label><div class="col-sm-4"><input type="text" class="form-control" id="PassportNo" name="PassportNo" required></div>
+                    <label class="col-sm-2">Place of Birth</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" name="BirthPlace" id="BirthPlace" required></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2">Given Name</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" name="PassportFirstName" id="PassportFirstName"  required></div>
+                    <label class="col-sm-2">Surname</label><div class="col-sm-4"><input type="text" class="form-control OnlyAlphabets" name="PassportLastName" id="PassportLastName"  required></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">Date Of Issue</label><div class="col-sm-4"><input type="text" class="form-control datepicker" id="PassportIssue" name="PassportIssue"  placeholder="dd/mm/yyyy"></div>
+                    <label class="col-sm-2">Date Of Expiry</label><div class="col-sm-4"><input type="text" class="form-control datepicker" id="PassportExpiry" name="PassportExpiry" placeholder="dd/mm/yyyy"></div>
+                </div>
+                <hr />
+
+                @*<div class="form-group">
+                    <div class="col-md-3">
+                        <h4><strong>Documents Provided: </strong></h4>
+                    </div>
+                    <div>
+
+                        <label class="checkbox-inline"><input type="checkbox" value="pancheck" name="docprovided">PAN Card</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="addresscheck" name="docprovided">Address-Proof </label>
+                        <label class="checkbox-inline"><input type="checkbox" value="degree" name="docprovided">Degree Certificates</label>
+
+
+                    </div>
+
+                </div>*@
+                
+
+                
+                <div class="form-group">
+                    <label class="col-sm-2">Employee Contract Date</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control datepicker" id="OfferedDate" name="OfferedDate" placeholder="dd/mm/yyyy"></div>
+                        <label class="col-sm-2">Date of First Job</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control datepicker" id="FirstJobDate" name="FirstJobDate" placeholder="dd/mm/yyyy">
+                        </div>
+                    </div>
+                <hr />
+                <h4><strong>Visa: </strong></h4>
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <table class="table table-bordered table-hover" id="visatable_logic">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            #
+                                        </th>
+                                        <th class="text-center">
+                                            Country
+                                        </th>
+                                        <th class="text-center">
+                                            Type Of Visa
+                                        </th>
+                                        <th class="text-center">
+                                            Expired
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr id='visaaddr0'>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            <input type="text" name='Country' id="Country" class="form-control OnlyAlphabets"  />
+
+                                        </td>
+                                        <td>
+                                            <input type="text" name='VisaType' id="VisaType" class="form-control OnlyAlphabets"  />
+
+                                        </td>
+                                        <td>
+                                            <input type="text" name='VisaExpiry' id="VisaExpiry" class="form-control datepicker" placeholder="dd/mm/yyyy"/>
+
+
+                                        </td>
+                                    </tr>
+                                    <tr id='visaaddr1'></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a id="add_visa" class="btn btn-default pull-left">Add Row</a><a id='delete_visa' class="pull-right btn btn-default">Delete Row</a>
+                </div>
+                <br />
+
+                <hr />
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-advanced" id="savebutton4">Save & Continue</button>
+                </div>
+                
+            </form>
+        </div>
+        <div id="menu4" class="tab-pane fade">
+            <br />
+            <h3>Device Details</h3>
+            <form>
+
+                <br />
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <table class="table table-bordered table-hover" id="devicetab_logic">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            #
+                                        </th>
+                                        <th class="text-center">
+                                            Device Type
+                                        </th>
+                                        <th class="text-center">
+                                            Make
+                                        </th>
+                                        <th class="text-center">
+                                            Model No
+                                        </th>
+                                        <th class="text-center">
+                                            Serial/IMEI No
+                                        </th>
+                                        <th class="text-center">
+                                            HDD(GB)
+                                        </th>
+                                        <th class="text-center">
+                                            RAM(GB)
+                                        </th>
+                                        <th class="text-center">
+                                            Issue Date
+                                        </th>
+                                        <th class="text-center">
+                                            Return Date
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id='deviceaddr0'>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td class="col-sm-2">
+
+                                            <select class="form-control" id="DeviceType" name="DeviceType">
+                                                <option>Laptop</option>
+                                                <option>Mobile</option>
+                                                <option>Ipad</option>
+
+
+                                            </select>
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <input type="text" name='Make' id="Make" class="form-control" />
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <input type="text" name='ModelNo' id="ModelNo" class="form-control" />
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <input type="text" name='SerialNo' id="SerialNo" class="form-control" />
+                                        </td>
+                                        <td>
+                                            <input type="text" name='HDD' id="HDD" class="form-control" />
+                                        </td>
+                                        <td>
+                                            <input type="text" name='RAM' id="RAM" class="form-control" />
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <input type="text" name='DeviceIssue' id="DeviceIssue" class="form-control datepicker" placeholder="dd/mm/yyyy"/>
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <input type="text" name='DeviceReturn' id="DeviceReturn" class="form-control datepicker" placeholder="dd/mm/yyyy" />
+                                        </td>
+                                    </tr>
+                                    <tr id='deviceaddr1'></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a id="add_device" class="btn btn-default pull-left">Add Device</a>
+                    @*<a id='delete_device' class="pull-right btn btn-default">Delete Device</a>*@
+                </div>
+                <br />
+
+                <br />
+
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        <h4><strong>Peripherals:</strong></h4>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="keyboard">Keyboard </label>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="mouse">Mouse</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="monitor">Monitor</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="headphone">HeadPhone</label>
+
+
+
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="form-group">
+                        <div class="col-sm-2"><h4><strong>AccessCardNo:</strong></h4></div><div class="col-sm-4"><input type="text" class="form-control" id="Access" name="Access" /></div>
+                    </div>
+                </div>
+                <br />
+                <br />
+               
+                <div>
+                    <button type="button" class="btn btn-advanced" id="savebutton5">Save & Continue</button>
+                    
+
+                       
+                    
+                </div>
+
+
+               
+                   
+
+
+</form>
+
+        </div>
+    <!---------------------------------------------------------------------------->
+        
+    <div id="menu6" class="tab-pane fade">
+        <h3>Bank Account Details</h3>
+        <hr/>
+
+        <form role="form" class="form-horizontal" name="bankdetailsform" id="bankdetailsform">
+            <div class="form-group">
+                <label class="col-md-5"> Do you have HDFC Bank Account ?</label>
+                <div class="col-md-6">
+
+                    <label class="radio-inline"><input type="radio" name="HDFCBank" value="bankyes" id="radiobankyes">Yes </label>
+                    <label class="radio-inline"><input type="radio" name="HDFCBank" value="bankno" id="radiobankno" checked>No </label>
+                </div>
+            </div>
+            <div class="form-group" id="banknamehide">
+
+                <label class="col-sm-2" >Bank Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="BankName" name="BankName" onkeypress="return onlyAlphabets(event, this);">
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Account Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="AccountName" name="AccountName">
+                </div>
+                <label class="col-sm-2">Account No.</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="AccountNo" id="AccountNo">
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2">Branch</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control OnlyAlphabets" name="Branch" id="Branch">
+                </div>
+                <label class="col-sm-2">IFSC Code</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="IFSCcode" id="IFSCcode">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn btn-advanced" id="savebutton6"  type="button">Save & Continue</button>
+
+            </div>
+        </form>
+    </div>
+   
+    <!--------------------------------------------------------------------------->
+    <div id="menu5" class="tab-pane fade">
+
+
+
+    <h3><strong> Photo</strong>
+    </h3>
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <table class="table table-bordered table-hover" id="insuredfile_logic">
+
+
+                    <thead>
+                    <tr style="background-color: #dddddd;">
+                        <th class="text-center col-md-3 ">
+                            File Description
+                        </th>
+                        <th class="text-center col-md-5 ">
+                            File
+                        </th>
+                        <th class="text-center">
+
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id='imgrow' style="background-color: white;">
+                        <td class="text-center">
+                            Employee Photo
+                        </td>
+
+                        <td class="col-md-5">
+                            <div class="form-group ">
+                                <input type="file" name="file" class="file" id="file">
+                                <div class="input-group col-xs-10">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                                    <input type="text" class="form-control input-lg" disabled placeholder="Upload .JPG Image">
+                                    <span class="input-group-btn">
+                                                        <button class="browse btn btn-advanced input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                                                    </span>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-advanced" id="uploadimage" style="margin-left: 100px;">Upload</button>
+                        </td>
+
+
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div id="viewbag" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; color: green; text-align: center"></div>
+        </div>
+
+    </div>
+
+
+    <h3><strong>Documents</strong>
+    </h3>
+    <div>
+        <form action="Upload" method="post" enctype="multipart/form-data">
+
+            @if (ViewBag.message != null)
+            {
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @ViewBag.message
+                    </div>
+                </div>
+            }
+
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+
+                        <table class="table table-bordered table-hover" id="pdfFilestable">
+                            <thead>
+                            <tr style="background-color: #dddddd;">
+                                <th class="text-center col-md-1">
+                                    #
+                                </th>
+                                <th class="text-center col-md-5">
+                                    File Description
+                                </th>
+                                <th class="text-center col-md-6">
+                                    File
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr id='filerow0' style="background-color: white;">
+                                <td class="text-center col-md-1">
+                                    1
+                                </td>
+                                <td class="text-center col-md-5">
+                                    <select class="form-control" id="FileDescription" name="FileDescription">
+
+                                        <option selected>PAN Card</option>
+                                        <option>Birth Certificate</option>
+                                        <option>10th Marks Card</option>
+                                        <option>Degree Certificate</option>
+                                        <option>Address Proof</option>
+                                        <option>Passport</option>
+                                        <option>Driving Licence</option>
+                                        <option>Visa</option>
+                                        <option>Technical Certifications</option>
+                                        <option>Others</option>
+
+                                    </select>
+                                </td>
+                                <td class="text-center col-md-6">
+                                    <div class="form-group ">
+                                        <input type="file" name="files" class="file">
+                                        <div class="input-group col-xs-10">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+                                            <input type="text" class="form-control input-lg" disabled placeholder="Upload .PDF file">
+                                            <span class="input-group-btn">
+                                                                <button class="browse btn btn-advanced input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                </td>
+
+                                @*<td class="col-md-4">
+                                                    <iframe id="viewer1" frameborder="0" scrolling="no" width="180" height="200"></iframe>
+                                                </td>*@
+                            </tr>
+                            <tr id='filerow1' style="background-color: white;"></tr>
+
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+                </div>
+                <a id="add_pdf" class="btn btn-default pull-left">Add File</a>
+                <hr/>
+                <p>(<strong style="color: red">*</strong>)Take a print of application on click of preview before submit.
+                </p>
+
+                <button class="btn btn-advanced  glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#myModal" id="showpreview" onclick="return preview();" style="height: 34px; padding-top: 0px; margin-left: 10px; width: 100px">
+                    Preview
+                </button>
+                <button class="btn btn-advanced  " type="submit" id="uploadAllpdf" style="height: 34px; padding-top: 0px; width: auto; float: right; margin-right: 110px;">
+                    Upload & Submit
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="border: thin" id="modalcontent">
+                <div style="padding-top: 10px; padding-left: 30px;"><img src="~/Content/images/acslogo.png"/>
+                </div>
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+                </div>
+                <div class="modal-body" id="printbody">
+
+                    <div style="width: 100%; height: 130px; border: 1px solid black; margin-bottom: 10px;">
+
+
+                        <div>
+                            <div style="text-align: center; margin-top: 40px; font-size: 35px; font-family: 'Open Sans', sans-serif; color: orange">
+                                Joining Report
+                            </div>
+
+                            <div style="float: right; border: 1px solid black; margin-top: -89px; margin-right: 2px;"> <img id="previewpic" src="#" alt="your image" style="width: 105px; height: 123px"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="preview_data" title="Preview Form Data"></div>
+
+                </div>
+                <p style="text-align: center">&copy;Advanced Business and Healthcare Solutions India Pvt Ltd</p>
+            </div>
+            <div class="modal-footer">
+                <p>&copy;Advanced Business and Healthcare Solutions India Pvt Ltd</p>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-success btn-lg glyphicon glyphicon-print" id="printButton" type="button"> Print</button>
+            </div>
+        </div>
+
+    </div>
+
+    <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @ViewBag.Message
+
+
+
+
+
+    @*@using (Html.BeginForm("Upload", "Home",FormMethod.Post, new { enctype = "multipart/form-data" }))*@
+
+
+    @*<img id="previewpic" src="#" alt="your image" style="width:130px; height:150px" />
+
+                @*<input type="submit" value="Upload Image" />*@
+
+
+
+
+
+    @*<button type="button" class="btn btn-advanced" id="showimage" onclick="location.href='@Url.Action("FileDetails", "Home")'">ShowImage</button>*@
+
+
+    </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "DeviceDetails";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+
+    <br />
+    <h3>DeviceDetails</h3>
+    <form>
+
+        <br />
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="devicetab_logic">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    #
+                                </th>
+                                <th class="text-center">
+                                    Device Type
+                                </th>
+                                <th class="text-center">
+                                    Make
+                                </th>
+                                <th class="text-center">
+                                    Model No
+                                </th>
+                                <th class="text-center">
+                                    Serial/IMEI No
+                                </th>
+                                <th class="text-center">
+                                    HDD(GB)
+                                </th>
+                                <th class="text-center">
+                                    RAM(GB)
+                                </th>
+                                <th class="text-center">
+                                    Issue Date
+                                </th>
+                                <th class="text-center">
+                                    Return Date
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='deviceaddr0'>
+                                <td>
+                                    1
+                                </td>
+                                <td class="col-sm-2">
+
+                                    <select class="form-control" id="DeviceType" name="DeviceType">
+                                        <option>Laptop</option>
+                                        <option>Mobile</option>
+                                        <option>Ipad</option>
+
+
+                                    </select>
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="text" name='Make' id="Make" class="form-control" />
+                                </td>
+                                <td class="col-sm-1">
+                                    <input type="text" name='ModelNo' id="ModelNo" class="form-control" />
+                                </td>
+                                <td class="col-sm-1">
+                                    <input type="text" name='SerialNo' id="SerialNo" class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name='HDD' id="HDD" class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name='RAM' id="RAM" class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="date" name='DeviceIssue' id="DeviceIssue" class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="date" name='DeviceReturn' id="DeviceReturn" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr id='deviceaddr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a id="add_device" class="btn btn-default pull-left">Add Device</a>
+            @*<a id='delete_device' class="pull-right btn btn-default">Delete Device</a>*@
+        </div>
+        <br />
+
+        <br />
+
+        <div class="form-group">
+
+            <div class="col-md-12">
+                <h4><strong>Peripherals:</strong></h4>
+                <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="keyboard">Keyboard </label>
+                <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="mouse">Mouse</label>
+                <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="monitor">Monitor</label>
+                <label class="checkbox-inline"><input type="checkbox" name="peripherals" value="headphone">HeadPhone</label>
+
+
+
+            </div>
+            <br />
+            <br />
+
+            <div class="form-group">
+                <div class="col-sm-2"><h4><strong>AccessCardNo:</strong></h4></div><div class="col-sm-4"><input type="text" class="form-control" id="Access" name="Access" /></div>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div>
+            <button type="button" class="btn btn-primary" id="savebutton5">Save & Continue</button>
+
+
+
+
+        </div>
+
+
+        <p class="col-sm-6" style="float:right;">
+            <a>
+                <span class="glyphicon glyphicon-chevron-left" id="chevronleft5"></span>
+            </a>
+        </p>
+
+
+
+
+    </form>
+
+
+

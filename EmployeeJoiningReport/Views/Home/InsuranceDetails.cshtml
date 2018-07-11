@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "InsuranceDetails";
+    Layout = "~/Views/Shared/GeneralLayout.cshtml";
+}
+
+
+    <h3>Medical Insurance</h3>
+    <form name="insurance">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="insuredtab_logic">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    #
+                                </th>
+                                <th class="text-center">
+                                    Insured Name
+                                </th>
+                                <th class="text-center">
+                                    Date Of Birth
+                                </th>
+                                <th class="text-center">
+                                    Relationship
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr id='addr0'>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    <input type="text" name='InsuredName' id="InsuredName" placeholder='Name' class="form-control" onkeypress="return onlyAlphabets(event,this);" />
+
+                                </td>
+                                <td>
+                                    <input type="date" name='InsuredDOB' id="InsuredDOB" class="form-control" />
+                                </td>
+                                <td>
+
+                                    <select class="form-control" id="Relationship" name="Relationship">
+
+                                        <option selected>Father</option>
+                                        <option>Mother</option>
+                                        <option>Spouse</option>
+                                        <option>Son</option>
+                                        <option>Daughter</option>
+                                        <option>Mother-In-Law</option>
+                                        <option>Father-In-Law</option>
+
+                                    </select>
+
+
+                                    @*<input type="text" name='Relationship' id="Relationship" class="form-control"  onkeypress="return onlyAlphabets(event,this);"/>*@
+                                    <input type="hidden" name='hiddenval' id="hiddenval" />
+
+                                </td>
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+        </div>
+        <br />
+        <div class="col-sm-2">
+            <button type="button" class="btn btn-primary" id="savebutton3">Save & Continue</button>
+
+
+        </div>
+
+        <div class="col-sm-6" style="float:right;">
+
+            <a style="padding-right: 10px">
+                <span class="glyphicon glyphicon-chevron-left" id="chevronleft3"></span>
+            </a>
+            <a style="padding-left: 10px">
+                <span class="glyphicon glyphicon-chevron-right" id="chevronright3"></span>
+            </a>
+        </div>
+    </form>
+
+
+

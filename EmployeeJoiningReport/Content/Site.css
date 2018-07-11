@@ -1,0 +1,77 @@
+﻿body {
+    padding-top: -2px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-top: 15px;
+    background-color: #f5f5f5;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.btn-advanced {
+  color: #ffffff;
+  background-color: #ff8500;
+    border-color: #ff8500;
+}
+
+.btn-advanced:hover{
+    color: black;
+    background-color: #ff8500;
+    border-color: #ff8500;
+}
+.btn-advanced:focus,
+.btn-advanced:active
+{
+     color: black;
+    background-color: #ff8500;
+    border-color: #ff8500;
+}
+.btn-advanced.active{
+     color: black;
+    background-color: #ff8500;
+    border-color: #ff8500;
+
+}
+.open .dropdown-toggle.btn-advanced {
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+
+.btn-advanced:active{
+    
+}
+.btn-advanced.active{
+     background-color: #ff8500;
+    border-color: #ff8500;
+}
+.open .dropdown-toggle.btn-advanced {
+  background-image: none;
+}
+
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    font-weight:bold;
+  color: #ffffff;
+  background-color: #ff8500;
+}
+

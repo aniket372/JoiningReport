@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default ">
+        <div class="container-fluid"></div>
+        <div class="navbar-header">
+
+            <a class="navbar-brand" onclick="location.href='@Url.Action("AdminLogin", "Home")'"><img src="~/Content/images/acslogo.png" /></a>
+
+
+        </div>
+        <div class="navbar-collapse" style="text-align:center; color: #ff8000;
+    font-size: 25px;
+    font-family: arial;
+    margin-right: 10%;
+   padding-top: 10px;">
+            <h1 style="font-family: 'Open Sans', sans-serif"> Joining Report</h1>
+        </div>
+
+
+
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <div style="background-color:#e76d03;margin: 15px 0px 15px 0px; ">
+        <footer style="text-align:center; color:white;">
+            <p>&copy;Advanced Business and Healthcare Solutions India Pvt Ltd</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/employee.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/bootstrap-formhelpers.min.js"></script>
+    <script src="~/Scripts/bootstrap-formhelpers-countries.js"></script>
+    <script src="~/Scripts/bootstrap-formhelpers-states.js"></script>
+    <script src="~/Scripts/bootstrap-formhelpers.js"></script>
+   
+    <script>
+
+
+    $(document).ready(function () {
+        var now = new Date();
+
+        var day = ("0" + now.getDate()).slice(-2);
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+        var today =day + "/" + month + "/"+now.getFullYear();
+
+
+        ///
+        $('#JoiningDate').val(today);
+
+        
+            $('#EmployeeId')
+                .blur(function() {
+                    var IdVal = document.getElementById('EmployeeId').value;
+                    if (IdVal.value != '') {
+                        var ObjVal = IdVal;
+                        var IDPattern = /^([a-zA-Z]{2})([-]{1})(\d{3})$/;
+                        var patternArray = ObjVal.match(IDPattern);
+                        if (patternArray == null) {
+                            bootbox.alert('Id Value Invalid !');
+                            return false;
+                        }
+                        return true;
+                    }
+
+
+                });
+        });
+    
+    </script>
+</body>
+</html>

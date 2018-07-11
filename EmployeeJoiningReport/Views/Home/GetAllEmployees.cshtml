@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Adv.Emp.Model.GetEmployeeModel>
+
+<p>
+    @Html.ActionLink("Create New", "AddEmployee")
+</p>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-bordered ">
+                <thead style="background-color:#ffa33e">
+                    <tr>
+                        <th style="text-align: center">
+                            Employee No
+                        </th>
+                        <th  style="text-align: center">
+                            Joining Date
+                        </th >
+                        <th  style="text-align: center">
+                            Full Name
+                        </th>
+                        <th  style="text-align: center">
+                            Employee Id
+                        </th>
+                        <th  style="text-align: center">
+                            Date Of Birth
+                        </th>
+                        <th style="text-align: center">
+                            Advanced Mail
+                        </th>
+
+                        <th  style="text-align: center">
+                            Personal Email
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Location)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Designation)
+                        </th>
+
+                       
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="table table-striped">
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmployeeNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.JoiningDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmployeeId)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DOB)
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OfficialMail)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Location)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Designation)
+                            </td>
+
+                           
+                            <td>
+
+                                @Html.ActionLink("Edit", "EditEmployeeDetails", new { EmployeeNumber = item.EmployeeNumber, FirstName = item.FirstName, LastName = item.LastName })
+
+
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+            <div style="text-align:center">
+                @if (ViewBag.Message != null)
+            {
+                    <p style="color: green;font-family:Arial, Helvetica, sans-serif ;font-size:20px;">@ViewBag.Message</p>
+                }
+            </div>
+        </div>
+        </div>
+    
+    </div>

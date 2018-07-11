@@ -1,0 +1,11 @@
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Adv.Emp.Service.dll
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Adv.Emp.Service.pdb
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Adv.Emp.DAL.dll
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Adv.Emp.Model.dll
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Dapper.dll
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Adv.Emp.DAL.pdb
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Adv.Emp.Model.pdb
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\bin\Release\Dapper.xml
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\obj\Release\Adv.Emp.Service.csprojResolveAssemblyReference.cache
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\obj\Release\Adv.Emp.Service.dll
+C:\Users\aniket.g\documents\visual studio 2015\Projects\EmployeeJoiningReport\Adv.Emp.Service\obj\Release\Adv.Emp.Service.pdb
